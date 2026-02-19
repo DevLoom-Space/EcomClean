@@ -1,0 +1,225 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DevLoom | Innovation Hub{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Prefer local vendored Bootstrap if present, otherwise CDN; project CSS after so it can override -->
+    <link rel="stylesheet" href="{% static 'devloom/vendor/bootstrap/css/bootstrap.min.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'devloom/css/home.css' %}?v={{ STATIC_VERSION }}">
+    {% block extra_css %}{% endblock %}
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background: #0a0f1a;
+            color: #e0e6f0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            transition: background 300ms ease, color 300ms ease;
+            overflow-x: hidden; /* remove any horizontal scroll */
+        }
+
+        body.light {
+            background: linear-gradient(180deg, #f6f8fb, #e9eef7);
+            color: #0b1220;
+        }
+
+        /* ===== Navbar ===== */
+        .navbar {
+            width: 100%;
+            background: linear-gradient(90deg, #0d1b2a, #001f3f, #002b5c);
+            box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 15px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo a {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #00d9ff;
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px #00d9ff;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+            margin-left: auto;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #cfd8dc;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links li a::after {
+            content: '';
+            position: absolute;
+            width: 0%;
+            height: 2px;
+            background: #00d9ff;
+            left: 0;
+            bottom: -4px;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: #00d9ff;
+            text-shadow: 0 0 8px rgba(0,217,255,0.35), 0 0 20px rgba(14,165,255,0.12);
+            transform: translateY(-2px);
+        }
+
+        .nav-links li a:hover::after {
+            width: 100%;
+        }
+
+        /* ===== Main Content ===== */
+        .main-content {
+            flex: 1;
+            width: 100%;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* ===== Footer ===== */
+        .footer {
+            width: 100%;
+            background: linear-gradient(90deg, #001f3f, #002b5c, #0d1b2a);
+            text-align: center;
+            padding: 30px 10px;
+            color: #9fa8b3;
+            border-top: 1px solid rgba(0, 255, 255, 0.15);
+        }
+
+        .footer strong {
+            color: #00d9ff;
+        }
+
+        .footer a svg {
+            margin: 0 10px;
+            filter: drop-shadow(0 0 5px #00d9ff);
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        .footer a svg:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 10px #00ffff);
+        }
+
+        body.light .navbar {
+            background: linear-gradient(90deg, #ffffff, #f1f5fb);
+            box-shadow: 0 6px 24px rgba(16,24,40,0.06);
+        }
+
+        body.light .logo a {
+            color: #0b1220;
+            text-shadow: none;
+        }
+
+        body.light .nav-links li a {
+            color: #0b1220;
+        }
+
+        body.light .footer {
+            background: linear-gradient(90deg, #f1f5fb, #ffffff);
+            color: #2b3440;
+            border-top-color: rgba(0,0,0,0.04);
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .nav-links {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body class="light">
+    <header class="navbar navbar-expand-lg" role="navigation" aria-label="Main navigation">
+        <div class="container-fluid d-flex align-items-center">
+            <a class="logo navbar-brand me-3 d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'devloom/images/devloom_logo.svg' %}" alt="DevLoom" class="logo-img">
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="nav-links navbar-nav ms-auto mb-2 mb-lg-0 d-flex align-items-center">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'home' %}" aria-label="Go to Home page">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'product_list' %}" aria-label="View Products">Products</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'about' %}" aria-label="About DevLoom">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}" aria-label="Contact DevLoom">Contact</a></li>
+                </ul>
+
+                <div class="right-actions d-flex align-items-center ms-3">
+                    <a class="cart me-3" href="{% url 'cart' %}" title="View cart" aria-label="View cart ({{ cart_count }} items)">🛒 <span class="cart-count">{{ cart_count }}</span></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="footer" style="font-weight: 300; font-size: 1.05rem; letter-spacing: 0.01em; padding-top: 1.5rem; padding-bottom: 1.5rem; margin-top: 2.5rem;">
+        <div style="margin-bottom: 0.5rem; line-height: 1.2;">
+            <a href="#" aria-label="GitHub" style="margin: 0 0.12em; vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="filter: drop-shadow(0 0 2px #00d9ff);"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.38 7.86 10.89.58.11.79-.25.79-.56 0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54-.53-1.35-1.29-1.71-1.29-1.71-1.06-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.11-.76.41-1.27.74-1.56-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.29 1.2-3.1-.12-.29-.52-1.46.11-3.05 0 0 .98-.31 3.21 1.18a11.1 11.1 0 0 1 2.93-.39c.99 0 1.99.13 2.93.39 2.23-1.5 3.21-1.18 3.21-1.18.63 1.59.23 2.76.11 3.05.75.81 1.2 1.84 1.2 3.1 0 4.42-2.7 5.39-5.27 5.67.42.36.79 1.08.79 2.18 0 1.58-.01 2.86-.01 3.25 0 .31.21.68.8.56C20.71 21.38 24 17.08 24 12c0-6.27-5.23-11.5-12-11.5z"/></svg>
+            </a>
+            <span style="font-size: 1em; color: #00d9ff; font-weight: 400; margin: 0 0.08em;">·</span>
+            <a href="#" aria-label="Twitter" style="margin: 0 0.12em; vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="filter: drop-shadow(0 0 2px #00d9ff);"><path d="M23 3a10.9 10.9 0 0 1-3.14 1.53A4.48 4.48 0 0 0 22.43.36a9 9 0 0 1-2.86 1.09A4.48 4.48 0 0 0 16.11 0c-2.5 0-4.51 2.17-3.96 4.6A12.94 12.94 0 0 1 1.64 1.15 4.48 4.48 0 0 0 2.9 6.8 4.41 4.41 0 0 1 .89 6v.06A4.48 4.48 0 0 0 4.48 10a4.52 4.52 0 0 1-2 .08 4.48 4.48 0 0 0 4.19 3.12A9 9 0 0 1 1 18.57 12.72 12.72 0 0 0 7.29 20c8.9 0 13.76-7.45 13.1-14.07A9.7 9.7 0 0 0 23 3z"/></svg>
+            </a>
+            <span style="font-size: 1em; color: #00d9ff; font-weight: 400; margin: 0 0.08em;">·</span>
+            <a href="#" aria-label="LinkedIn" style="margin: 0 0.12em; vertical-align: middle;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="filter: drop-shadow(0 0 2px #00d9ff);"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-14h4v2a4 4 0 0 1 4-2z"/><rect x="2" y="9" width="4" height="12" rx="1"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+        </div>
+        <p style="margin-top: 0.7rem; font-weight: 300; font-size: 1.08rem; color: #222; line-height: 1.7; letter-spacing: 0.01em;">
+            &copy; <span id="year"></span> <a href="#" style="color: #00d9ff; font-weight: 400; text-decoration: none;">DevLoom</a> — Innovating the Tech Experience
+        </p>
+    </footer>
+
+    <!-- Prefer local vendored Bootstrap JS if present, otherwise CDN -->
+    <script src="{% static 'devloom/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Keep only the dynamic year script; the theme toggle has been removed and site defaults to light mode.
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

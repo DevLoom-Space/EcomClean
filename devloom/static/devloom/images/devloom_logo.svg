@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="120" viewBox="0 0 600 120" role="img" aria-label="DevLoom logo">
+  <defs>
+    <linearGradient id="grad" x1="0" x2="1">
+      <stop offset="0" stop-color="#00e5ff"/>
+      <stop offset="1" stop-color="#0077ff"/>
+    </linearGradient>
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="6" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <style>
+      .word { font-family: 'Inter', Arial, sans-serif; font-weight: 800; font-size: 56px; fill: url(#grad); }
+      .sub { font-family: 'Inter', Arial, sans-serif; font-weight: 600; font-size: 16px; fill: #9fdff7; }
+      .mark { fill: url(#grad); opacity: 0.98 }
+    </style>
+  </defs>
+
+  <!-- transparent background (logo will sit directly on the page/navbar) -->
+  <!-- background removed to allow transparent placement -->
+
+  <!-- stylized mark (stacked lines) -->
+  <g transform="translate(24,24)" filter="url(#glow)">
+    <rect x="0" y="0" width="72" height="72" rx="14" class="mark" opacity="0.12" />
+    <g transform="translate(12,20)">
+      <rect x="0" y="0" width="48" height="6" rx="3" fill="#00e5ff" />
+      <rect x="0" y="14" width="36" height="6" rx="3" fill="#00aaff" />
+      <rect x="0" y="28" width="24" height="6" rx="3" fill="#0077ff" />
+    </g>
+  </g>
+
+  <!-- wordmark -->
+  <text x="120" y="76" class="word">DevLoom</text>
+  <text x="120" y="98" class="sub">Innovating the Tech Experience</text>
+</svg>

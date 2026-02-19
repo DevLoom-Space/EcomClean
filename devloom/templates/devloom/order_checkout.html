@@ -1,0 +1,40 @@
+{% extends 'devloom/base.html' %}
+{% load static %}
+
+{% block title %}Checkout - DevLoom{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background: linear-gradient(120deg, #e0f7fa 60%, #f7e9fc 100%);">
+    <div class="card shadow-lg border-0 p-4 w-100 animate__animated animate__fadeInUp" style="max-width: 540px; border-radius: 24px; background: #fff; position: relative;">
+        <div class="text-center mb-4">
+            <h2 class="fw-bold mt-3 mb-2" style="color: #0d1b2a;">Checkout</h2>
+            <p class="text-muted mb-0" style="font-size: 1.08rem;">Please enter your details to place your order.</p>
+        </div>
+        <form method="post" action="">
+            {% csrf_token %}
+            <div class="mb-3">
+                <label for="customer_name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="customer_name" name="customer_name" required placeholder="Your Name">
+            </div>
+            <div class="mb-3">
+                <label for="customer_email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="customer_email" name="customer_email" required placeholder="you@email.com">
+            </div>
+            <div class="mb-4">
+                <h5 class="fw-semibold mb-2" style="color: #222;">Order summary</h5>
+                <ul class="list-group mb-2">
+                {% for it in items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center" style="border: none; background: #f8fafc; border-radius: 7px; margin-bottom: 6px;">
+                        <span>{{ it.qty }} x {{ it.name }}</span>
+                        <span class="fw-bold" style="color: #0ea5e9;">Ksh {{ it.price }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+            <div class="d-grid">
+                <button type="submit" class="btn btn-lg" style="background: linear-gradient(90deg,#00e5ff,#0077ff); color: #fff; font-weight: 700; border-radius: 999px; font-size: 1.15rem;">Place Order</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

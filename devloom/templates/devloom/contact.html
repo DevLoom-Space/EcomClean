@@ -1,0 +1,144 @@
+
+{% extends "devloom/base.html" %}
+{% block extra_css %}
+<style>
+    .contact-section {
+        min-height: 90vh;
+        background: linear-gradient(120deg, #f6f8fb 60%, #e0f7fa 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 0;
+    }
+    .contact-row {
+        width: 100%;
+        max-width: 900px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+    }
+    .contact-card, .contact-info-block {
+        background: #fff;
+        border-radius: 1.5rem;
+        box-shadow: 0 8px 32px #00bcd41a, 0 2px 16px #0001;
+        padding: 2.5rem 2rem 2rem 2rem;
+        flex: 1 1 340px;
+        min-width: 320px;
+        max-width: 420px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .contact-card {
+        border-left: 6px solid #0ea5e9;
+    }
+    .contact-info-block {
+        border-left: 6px solid #22c55e;
+        background: linear-gradient(120deg, #e0f7fa 80%, #f6f8fb 100%);
+    }
+    .contact-card h2, .contact-info-block h3 {
+        color: #0ea5e9;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+    }
+    .contact-card .form-label {
+        color: #0d1b2a;
+        font-weight: 600;
+    }
+    .contact-card .form-control {
+        border-radius: 10px;
+        font-size: 1.08rem;
+    }
+    .contact-card .btn {
+        background: linear-gradient(90deg, #0ea5e9, #3b82f6);
+        color: #fff;
+        border-radius: 10px;
+        font-size: 1.1rem;
+        font-weight: 700;
+        box-shadow: 0 2px 8px #0ea5e933;
+    }
+    .contact-card .btn:hover {
+        background: linear-gradient(90deg, #3b82f6, #0ea5e9);
+    }
+    .contact-info {
+        margin-top: 1.2rem;
+        color: #0d1b2a;
+        font-size: 1.05rem;
+        text-align: left;
+    }
+    .contact-social {
+        display: flex;
+        justify-content: flex-start;
+        gap: 1.2rem;
+        margin-top: 1.2rem;
+    }
+    .contact-social a {
+        font-size: 1.7rem;
+        transition: transform 0.2s;
+    }
+    .contact-social a:hover {
+        transform: scale(1.18) rotate(-6deg);
+    }
+    @media (max-width: 900px) {
+        .contact-row { flex-direction: column; gap: 1.5rem; }
+        .contact-card, .contact-info-block { max-width: 100%; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="contact-section">
+    <div class="contact-row">
+        <div class="contact-card">
+            <div class="mb-4">
+                <h2 class="mb-1">Contact Us</h2>
+                <p class="text-muted mb-0" style="font-size: 1.08rem;">We'd love to hear from you! Fill out the form and our team will get back to you soon.</p>
+            </div>
+            {% if messages %}
+                <div class="mb-3">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }}" style="border-radius:8px; font-size:1.08rem; margin-bottom:8px;">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+            <form method="post" autocomplete="off">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Full Name</label>
+                    <input type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email Address</label>
+                    <input type="email" class="form-control form-control-lg" id="email" name="email" placeholder="you@email.com" required>
+                </div>
+                <div class="mb-3">
+                    <label for="message" class="form-label">Message</label>
+                    <textarea class="form-control form-control-lg" id="message" name="message" rows="5" placeholder="Type your message here..." required></textarea>
+                </div>
+                <button type="submit" class="btn w-100 mt-2">Send Message</button>
+            </form>
+        </div>
+        <div class="contact-info-block">
+            <h3 class="mb-3">Get in Touch</h3>
+            <div class="contact-info">
+                <div><b>Email:</b> <a href="mailto:devloomspace@gmail.com" style="color: #0ea5e9; text-decoration: underline;">devloomspace@gmail.com</a></div>
+                <div class="mt-2"><b>Phone:</b> <a href="tel:+254111670942" style="color: #0ea5e9; text-decoration: underline;">+254 111 670942</a></div>
+                <div class="mt-2"><b>WhatsApp:</b> <a href="https://wa.me/254111670942" target="_blank" style="color: #25D366; text-decoration: underline;">Chat Now</a></div>
+            </div>
+            <div class="contact-social">
+                <a href="https://wa.me/254111670942" target="_blank" aria-label="WhatsApp" style="color: #25D366;"><i class="bi bi-whatsapp"></i></a>
+                <a href="https://facebook.com/yourpage" target="_blank" aria-label="Facebook" style="color: #1877f3;"><i class="bi bi-facebook"></i></a>
+                <a href="https://twitter.com/yourprofile" target="_blank" aria-label="Twitter" style="color: #1da1f2;"><i class="bi bi-twitter-x"></i></a>
+            </div>
+            <div class="mt-4">
+                <small class="text-muted">Our support team is available Mon-Fri, 9am-6pm EAT.<br>We usually respond within 24 hours.</small>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

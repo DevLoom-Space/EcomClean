@@ -1,0 +1,614 @@
+.cart-cross-sell-items {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+.cart-cross-sell-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 18px rgba(16,24,40,0.08);
+    border: 1px solid rgba(11,18,32,0.06);
+    padding: 18px 12px 18px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 180px;
+    min-width: 160px;
+    max-width: 220px;
+    margin-bottom: 12px;
+}
+.cart-cross-sell-item .btn {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    background: #00e5ff;
+    color: #001018;
+    border-radius: 999px;
+    font-weight: 700;
+    text-align: center;
+    box-shadow: 0 2px 8px #00e5ff22;
+    border: none;
+    padding: 10px 0;
+    transition: background 0.2s;
+}
+.cart-cross-sell-item .btn:hover {
+    background: #00bcd4;
+    color: #fff;
+}
+body, html {
+    font-size: 1.08rem !important;
+}
+/* Force product cards to align horizontally */
+.products-row {
+        display: flex;
+        gap: 48px;
+        justify-content: center;
+        align-items: stretch;
+        margin: 40px 0;
+        flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+    .products-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .product-box.cart-style {
+        min-width: 90vw;
+        max-width: 98vw;
+        width: 100%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .products-row {
+        gap: 24px;
+    }
+}
+
+@media (max-width: 900px) {
+    .products-row {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+    }
+    .product-box.cart-style {
+        min-width: 90vw;
+        max-width: 98vw;
+        width: 100%;
+    }
+    .feature-highlights {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+    }
+}
+
+@media (max-width: 600px) {
+    .products-gradient-bg {
+        border-radius: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    .products-row {
+        gap: 18px;
+        margin: 24px 0;
+    }
+    .feature-badge {
+        font-size: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+    .product-box.cart-style {
+        padding: 18px 8px 18px 8px !important;
+    }
+}
+/* Gradient background for product section */
+.products-gradient-bg {
+    background: #e3fcff;
+    border-radius: 24px;
+    box-shadow: 0 8px 40px 0 rgba(0, 198, 255, 0.10), 0 2px 16px 0 rgba(0,0,0,0.08);
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Feature highlights */
+.feature-highlights {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem;
+    margin-bottom: 1.5rem;
+}
+.feature-badge {
+    background: rgba(0, 198, 255, 0.13);
+    color: #00bcd4;
+    border-radius: 999px;
+    padding: 0.5rem 1.3rem;
+    font-weight: 700;
+    font-size: 1.08rem;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 2px 12px #00e5ff22;
+    letter-spacing: 0.01em;
+    text-shadow: 0 1px 6px #fff, 0 0px 1px #b2ebf2;
+}
+.feature-icon {
+    font-size: 1.3em;
+    margin-right: 0.6em;
+}
+
+/* Consistent card styling with cart */
+.cart-style {
+    background: linear-gradient(180deg, #0f1620 0%, #0b0f16 100%);
+    border: 1px solid rgba(0, 217, 255, 0.06);
+    border-radius: 18px !important;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 200, 255, 0.04) inset;
+    color: #e6f7ff;
+}
+/* DevLoom home & catalog styles (extracted from templates) */
+body {
+    background: #fff !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+
+
+/* 🔵 Hero Section */
+.welcome-section {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 20px;
+    min-height: 70vh;
+    color: #fff;
+    /* subtle gradient overlay only; decorative image is supplied via the .hero-bg <img> element */
+    background: linear-gradient(180deg, rgba(8,10,12,0.12), rgba(8,10,12,0.15));
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    overflow: hidden;
+}
+.welcome-section h1 {
+    font-size: 3rem;
+    color: #00ffff;
+    text-shadow: 0 0 12px #00ffff;
+}
+.welcome-section .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* increase opacity so the image reads clearly behind the content */
+    opacity: 0.9;
+    pointer-events: none;
+    z-index: 0;
+}
+.welcome-section > div { position: relative; z-index: 1 }
+.welcome-section p {
+    color: #ddd;
+    max-width: 700px;
+    margin: 0 auto 20px;
+    font-weight: 700;
+    font-size: 1.35rem;
+    text-shadow: 0 2px 12px #000, 0 0 8px #00e5ff44;
+    letter-spacing: 0.01em;
+}
+.btn {
+    display: inline-block;
+    padding: 12px 24px;
+    border-radius: 28px;
+    background: #00ffff;
+    color: #000;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* ===== Catalog / Products page ===== */
+.category-filters {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 18px 20px;
+    flex-wrap: wrap;
+}
+.category-filters .btn.small {
+    padding: 6px 10px;
+    border-radius: 999px;
+    background: transparent;
+    color: #374151; /* toned-down text color */
+    border: 1px solid rgba(11,18,32,0.06);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+.category-filters .btn.small.active {
+    background: linear-gradient(90deg,#00e5ff,#0077ff);
+    color: #001018;
+    box-shadow: 0 6px 18px rgba(0,120,255,0.12);
+}
+
+/* small count badge shown next to categories */
+.category-filters .badge {
+    display: inline-block;
+    margin-left: 6px;
+    padding: 3px 6px;
+    border-radius: 999px;
+    background: rgba(11,18,32,0.04);
+    color: #374151;
+    font-weight: 700;
+    font-size: 0.75rem;
+}
+
+/* ===== Neon-styled Bootstrap toggler & collapsed menu tweaks ===== */
+.navbar-toggler {
+    border: 1px solid rgba(0, 217, 255, 0.14);
+    background: linear-gradient(90deg, rgba(0,217,255,0.06), rgba(0,120,255,0.04));
+    color: #00e5ff;
+    box-shadow: 0 6px 20px rgba(0,120,255,0.06), 0 0 12px rgba(0,200,255,0.06) inset;
+}
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: 0 8px 30px rgba(0,200,255,0.12);
+}
+.navbar-toggler-icon {
+    /* replace default icon with 3 neon bars made from box-shadow */
+    display: inline-block;
+    width: 28px;
+    height: 18px;
+    position: relative;
+    background: transparent !important;
+}
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after,
+.navbar-toggler-icon span {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg,#00e5ff,#0077ff);
+    border-radius: 2px;
+    box-shadow: 0 0 12px rgba(0,200,255,0.6);
+}
+.navbar-toggler-icon::before { top: 0 }
+.navbar-toggler-icon span { top: 7px }
+.navbar-toggler-icon::after { bottom: 0 }
+
+/* Collapsed menu (mobile) styling */
+.navbar-collapse {
+    backdrop-filter: blur(6px);
+}
+.navbar-collapse .nav-link {
+    color: #cfeff8 !important;
+    padding: 12px 16px;
+}
+.navbar-collapse.show {
+    background: linear-gradient(180deg, rgba(2,6,10,0.85), rgba(3,8,14,0.9));
+    border-top: 1px solid rgba(0,217,255,0.04);
+    box-shadow: 0 18px 40px rgba(0,10,20,0.6);
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 0 0 40px 0;
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+}
+
+.product-list-title {
+    font-size: 1.4rem; /* smaller than hero title */
+    font-weight: 700;
+    margin: 12px 0 10px;
+    color: inherit;
+    padding-left: 10px;
+}
+
+/* product-card used on product-list */
+.product-card {
+    background: linear-gradient(180deg,#0f1620 0%, #0b0f16 100%);
+    border: 1px solid rgba(0,217,255,0.06);
+    padding: 20px;
+    border-radius: 12px;
+    color: #e6f7ff;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    min-height:220px;
+    transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.product-card:hover{ transform: translateY(-6px); box-shadow: 0 18px 40px rgba(0,200,255,0.08);} 
+.product-meta{ font-size:0.9rem; color:#9fdff7; margin-bottom:8px }
+.product-price{ font-size:1.1rem; font-weight:800; color:#bff9ff; margin-bottom:8px }
+.product-desc{ color:#cfeef9; opacity:0.95; margin-bottom:12px }
+.product-actions{ display:flex; gap:10px; align-items:center }
+.btn.muted{ background:transparent; color:#cfeef8; border:1px solid rgba(255,255,255,0.04); padding:8px 12px }
+
+/* ===== Home page product cards (legacy selectors) ===== */
+.products-section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    padding: 48px 40px;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto 60px;
+    align-items: stretch;
+}
+.product-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(180deg, #0f1620 0%, #0b0f16 100%);
+    border: 1px solid rgba(0, 217, 255, 0.06);
+    padding: 28px;
+    border-radius: 14px;
+    color: #e6f7ff;
+    min-height: 220px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 10px rgba(0, 200, 255, 0.04) inset;
+}
+.product-box h3 {
+    color: #7ef0ff;
+    margin-bottom: 8px;
+}
+.product-box p { color: #cfeef9; opacity: 0.9; margin-bottom: 12px }
+.product-box .actions { margin-top: 12px; display:flex; justify-content:center }
+.product-box .actions a { background: linear-gradient(90deg, #00e5ff, #0077ff); color: #001018; padding: 10px 20px; border-radius: 999px; font-weight:700; text-decoration:none }
+
+/* reuse/compat with previous product styles if needed */
+/* NOTE: previously hid legacy `.products-section`/.`product-box` which removed the home product cards. Removed to restore home layout. */
+
+/* 🔵 Footer */
+footer.template-footer {
+    text-align: center;
+    color: #888;
+    padding: 20px;
+}
+
+/* 🔵 Responsiveness */
+
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding: 20px 12px;
+    }
+    .products-section { grid-template-columns: 1fr; padding: 30px 12px }
+
+/* Additional light-theme overrides to ensure high contrast when the user toggles light mode */
+body.light .navbar, body.light header.navbar {
+    background: linear-gradient(90deg, #ffffff, #f1f5fb) !important;
+}
+body.light .navbar .nav-link,
+body.light .nav-link,
+body.light .nav-links li a {
+    color: #0b1220 !important;
+    text-shadow: none !important;
+}
+body.light .logo a {
+    color: #0b1220 !important;
+    text-shadow: none !important;
+}
+body.light .right-actions .cart,
+body.light .right-actions a,
+body.light .right-actions .theme-toggle {
+    color: #0b1220 !important;
+}
+/* Ensure collapsed menu in light mode is readable */
+body.light .navbar-collapse.show {
+    background: linear-gradient(180deg, #ffffff, #fbfdff) !important;
+    border-top: 1px solid rgba(11,18,32,0.04) !important;
+}
+body.light .navbar-collapse .nav-link {
+    color: #0b1220 !important;
+}
+
+/* Light-mode adjustments for category filter buttons so they remain legible on pale backgrounds */
+body.light .category-filters .btn.small {
+    color: #0b1220 !important;
+    background: rgba(11,18,32,0.03) !important;
+    border-color: rgba(11,18,32,0.06) !important;
+}
+body.light .category-filters .btn.small .badge,
+body.light .category-filters .badge {
+    background: rgba(11,18,32,0.06) !important;
+    color: #0b1220 !important;
+}
+body.light .category-filters .btn.small.active {
+    /* keep the neon active look but slightly tempered for light background */
+    background: linear-gradient(90deg,#00e5ff,#0077ff) !important;
+    color: #001018 !important;
+    box-shadow: 0 6px 18px rgba(0,120,255,0.06) !important;
+}
+
+/* Logo image styles */
+.logo-img {
+    height: 72px;
+    width: auto;
+    display: inline-block;
+    vertical-align: middle;
+    filter: drop-shadow(0 2px 6px rgba(0,200,255,0.12));
+}
+body.light .logo-img { filter: none }
+
+/* visible brand text next to logo on wider screens */
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #00d9ff;
+    text-shadow: 0 0 8px #00d9ff;
+    display: none;
+}
+@media (min-width: 768px) {
+    .logo-text { display: inline-block }
+}
+body.light .logo-text { color: #0b1220; text-shadow: none }
+
+/* Dark-mode halo: stronger glow so logo stands out on dark navbars */
+body:not(.light) .logo-img {
+    /* multiple drop-shadows for a soft neon halo */
+    filter: drop-shadow(0 2px 6px rgba(0,200,255,0.18)) drop-shadow(0 0 18px rgba(0,150,255,0.18));
+}
+body:not(.light) .logo-text {
+    color: #00e5ff;
+    text-shadow: 0 2px 14px rgba(0,200,255,0.25), 0 0 6px rgba(0,120,255,0.12);
+}
+
+/* ===== New product card visuals (matches the supplied example) ===== */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    padding: 0 10px 40px 10px;
+    width: 100vw;
+    max-width: none;
+    margin: 0;
+.card-elevated {
+    background: #ffffff; /* bright card surface like the example */
+    color: #0b1220;
+    border-radius: 12px;
+    padding: 12px;
+    box-shadow: 0 8px 18px rgba(16,24,40,0.08);
+    border: 1px solid rgba(11,18,32,0.06);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+.card-media {
+    position: relative;
+}
+.image-placeholder {
+    width: 100%;
+    height: 160px;
+    background: linear-gradient(180deg,#f6f7f9,#ffffff);
+    border-radius: 8px;
+    border: 1px solid rgba(11,18,32,0.04);
+}
+.product-img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover; /* fill the card area while preserving aspect */
+    border-radius: 8px;
+    display: block;
+    background: transparent;
+}
+.card-icon {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    background: #fff;
+    border: 1px solid rgba(11,18,32,0.06);
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 6px 14px rgba(11,18,32,0.06);
+    cursor: pointer;
+}
+.card-body { padding: 12px 2px 6px; display:flex; flex-direction:column; gap:8px; flex:1 }
+.card-title { font-size: 1rem; font-weight: 700; margin: 0; color: #0b1220 }
+.card-sub { font-size: 0.85rem; color: #6b7280; margin: 0 }
+.card-price { font-weight: 800; font-size: 1.05rem; color: #0b1220 }
+.card-actions { margin-top: auto; display:flex; flex-direction:column; gap:10px }
+.order-btn {
+    display:block;
+    width:100%;
+    background: #16a34a; /* green */
+    color: #fff;
+    padding: 10px 12px;
+    border-radius: 8px;
+    text-align:center;
+    font-weight:700;
+    text-decoration:none;
+}
+.order-btn:hover { background:#15903b }
+.order-btn svg { width:18px; height:18px; margin-right:8px; vertical-align:middle; fill: currentColor }
+.call-btn {
+    display:block;
+    width:100%;
+    background: transparent;
+    color: #0b1220;
+    padding: 9px 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(11,18,32,0.08);
+    text-align:center;
+    text-decoration:none;
+}
+.call-btn:hover { background: rgba(11,18,32,0.02) }
+.call-btn svg { width:16px; height:16px; margin-right:8px; color: currentColor; vertical-align:middle }
+
+/* Ensure cards read well in dark theme: gentle inversion using mix-blend when not light */
+body:not(.light) .card-elevated {
+    background: linear-gradient(180deg,#0f1620 0%, #0b0f16 100%);
+    color: #e6f7ff;
+    border: 1px solid rgba(0,217,255,0.06);
+    box-shadow: 0 14px 34px rgba(0,10,20,0.5);
+}
+body:not(.light) .image-placeholder { background: linear-gradient(180deg,#0b0f16,#0f1620); border-color: rgba(0,217,255,0.04) }
+body:not(.light) .card-title, body:not(.light) .card-price { color: #cfeef9 }
+body:not(.light) .card-sub { color: #9fbfd6 }
+body:not(.light) .order-btn { background: linear-gradient(90deg,#16a34a,#059669); color:#fff }
+body:not(.light) .call-btn { color:#e6f7ff; border-color: rgba(255,255,255,0.06) }
+
+@media (min-width: 1000px) {
+    .product-grid { grid-template-columns: repeat(4, 1fr) }
+}
+
+/* Product detail / gallery styles */
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 28px;
+    max-width: 1200px;
+    margin: 20px auto 60px;
+    padding: 0 20px;
+}
+.gallery { display:flex; flex-direction:column; gap:12px }
+.main-image { background: #fff; border-radius: 10px; padding: 18px; display:flex; align-items:center; justify-content:center; border:1px solid rgba(11,18,32,0.04) }
+.detail-img { width: 100%; height: 420px; object-fit: cover; border-radius: 8px }
+.image-placeholder.large { width:100%; height:420px; background:linear-gradient(180deg,#f6f7f9,#ffffff); border-radius:8px }
+.thumbs { display:flex; gap:10px }
+.thumb { width:72px; height:72px; object-fit:cover; border-radius:6px; border:1px solid rgba(11,18,32,0.06) }
+
+.details { background: transparent; padding: 6px 4px }
+.detail-title { font-size: 1.6rem; margin: 0 0 8px }
+.detail-meta { display:flex; flex-direction:column; gap:8px; margin-bottom:12px }
+.detail-price { color:#16a34a; font-weight:800; font-size:1.25rem }
+.detail-stock { color:#6b7280 }
+.detail-rating .small { font-size:0.85rem; color:#6b7280 }
+
+.product-description h3 { margin-top:12px }
+.detail-actions { display:flex; flex-direction:column; gap:10px; margin-top:14px }
+.detail-actions { display:flex; flex-direction:column; gap:12px; margin-top:14px }
+/* Slightly smaller primary add-to-cart to match requested visual scale */
+.add-to-cart { background:#000; color:#fff; padding:10px 12px; border-radius:8px; font-weight:700; display:flex; align-items:center; justify-content:center; gap:8px; border:none }
+.add-to-cart svg { color:#fff; width:16px; height:16px }
+.add-to-cart .btn-text { font-size:0.95rem }
+
+.secondary-ctas { display:flex; gap:12px }
+.order-via-whatsapp { background:#16a34a; color:#fff; padding:8px 12px; border-radius:8px; text-align:center; font-weight:700; text-decoration:none; display:inline-flex; align-items:center; gap:8px; flex:1; font-size:0.95rem }
+.order-via-whatsapp svg { width:18px; height:18px; fill: currentColor }
+.call-inquiry { padding:8px 12px; border-radius:8px; text-align:center; text-decoration:none; display:inline-flex; align-items:center; gap:8px; justify-content:center; flex:1; font-size:0.95rem }
+.btn-outline { border:2px solid #1e90ff; background:transparent; color:#0b1220 }
+.call-inquiry svg { color:#1e90ff; width:16px; height:16px }
+
+/* ensure secondary CTAs' icons are consistent */
+.secondary-ctas svg { width:16px; height:16px }
+
+/* On small screens stack secondary CTAs */
+@media (max-width: 600px) {
+    .secondary-ctas { flex-direction: column }
+}
+
+@media (max-width: 900px) {
+    .page-grid { grid-template-columns: 1fr; padding: 0 12px }
+    .detail-img { height: 320px }
+}
+
+}

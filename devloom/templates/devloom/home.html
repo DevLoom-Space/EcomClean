@@ -1,0 +1,48 @@
+{% extends 'devloom/base.html' %}
+{% load static %}
+
+{% block title %}DevLoom | Home{% endblock %}
+
+{% block content %}
+
+
+<!-- 🔵 Hero -->
+<div class="welcome-section">
+    <!-- decorative background image (keeps Django template tag inside HTML attribute) -->
+    <img src="{% static 'devloom/images/Online shopping 2.png' %}" alt="" class="hero-bg" aria-hidden="true">
+    <div>
+        <h1>Welcome to DevLoom</h1>
+        <p>Discover our amazing collection of products built for performance, style, and reliability.</p>
+        <a href="{% url 'product_list' %}" class="btn btn-primary btn-lg" role="button" aria-label="View the Products listing">View Products</a>
+    </div>
+</div>
+
+<!-- 🔵 Product Section -->
+<div class="products-section products-gradient-bg">
+    <div class="feature-highlights">
+        <span class="feature-badge"><span class="feature-icon">🚚</span> Free Shipping</span>
+        <span class="feature-badge"><span class="feature-icon">⏰</span> 24/7 Support</span>
+        <span class="feature-badge"><span class="feature-icon">⭐</span> Best Sellers</span>
+    </div>
+    <div class="products-row">
+        <div class="product-box cart-style">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #7ef0ff; margin-bottom: 12px;">Laptops</h2>
+            <p style="font-size: 1.15rem; color: #e6f7ff; margin-bottom: 18px;">High-performance laptops for work, gaming, and creativity.</p>
+            <a class="btn" href="{% url 'product_list' %}?category=laptops" style="background: linear-gradient(90deg,#00e5ff,#0077ff); color: #fff; border-radius: 999px; font-weight: 600; padding: 10px 32px; font-size: 1.1rem; box-shadow: 0 2px 12px #00e5ff44;">Explore</a>
+        </div>
+        <div class="product-box cart-style">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #7ef0ff; margin-bottom: 12px;">Desktops</h2>
+            <p style="font-size: 1.15rem; color: #e6f7ff; margin-bottom: 18px;">Customizable desktops for professionals and gamers.</p>
+            <a class="btn" href="{% url 'product_list' %}?category=desktops" style="background: linear-gradient(90deg,#00e5ff,#0077ff); color: #fff; border-radius: 999px; font-weight: 600; padding: 10px 32px; font-size: 1.1rem; box-shadow: 0 2px 12px #00e5ff44;">Explore</a>
+        </div>
+        <div class="product-box cart-style">
+            <h2 style="font-size: 2rem; font-weight: 600; color: #7ef0ff; margin-bottom: 12px;">Accessories</h2>
+            <p style="font-size: 1.15rem; color: #e6f7ff; margin-bottom: 18px;">Upgrade your setup with top-quality accessories.</p>
+            <a class="btn" href="{% url 'product_list' %}?category=accessories" style="background: linear-gradient(90deg,#00e5ff,#0077ff); color: #fff; border-radius: 999px; font-weight: 600; padding: 10px 32px; font-size: 1.1rem; box-shadow: 0 2px 12px #00e5ff44;">Explore</a>
+        </div>
+    </div>
+</div>
+
+
+
+{% endblock %}

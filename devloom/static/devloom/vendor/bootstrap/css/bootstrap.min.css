@@ -1,0 +1,12 @@
+/* Bootstrap placeholder
+
+This file is a small placeholder so the project has a local path for a vendored Bootstrap copy.
+To fully vendor Bootstrap, replace this file with the real minified Bootstrap CSS (e.g., download from
+https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css and save it here).
+
+Keeping a local copy improves stability for offline development and reproducible builds.
+*/
+
+/* Minimal fallback styles to avoid total break if the real file isn't present. */
+.navbar-toggler { border: none; }
+.navbar-toggler-icon { display: inline-block; width: 1.5rem; height: 1.5rem; background-color: transparent; }

@@ -1,0 +1,87 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+*.pyo
+*.pyd
+*.pdb
+*.egg-info/
+*.egg
+*.log
+
+# Django
+*.sqlite3
+db.sqlite3
+.env
+.env.*
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+/static/
+/media/
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Virtual environments
+env/
+venv/
+ENV/
+
+# Test and coverage
+.coverage
+.tox/
+.nox/
+.pytest_cache/
+.coverage.*
+htmlcov/
+
+# Misc
+*.bak
+*.swp
+*.swo
+.idea/# Django/Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.env
+.env*
+
+# Virtualenv
+env/
+venv/
+ENV/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Static/media
+staticfiles/
+media/
+
+# Node modules
+node_modules/
+
+# Other
+*.bak
+*.swp
+.idea/

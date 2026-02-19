@@ -1,0 +1,54 @@
+{% extends 'devloom/base.html' %}
+{% load static %}
+
+{% block title %}DevLoom | Products{% endblock %}
+
+{% block content %}
+
+<h1 class="product-list-title">Products{% if current_category %} — {{ current_category.name }}{% endif %}</h1>
+
+<!-- Category filters removed per request -->
+
+<div class="product-grid">
+    {% if products.exists %}
+        {% for product in products %}
+        <article class="product-card card-elevated" aria-labelledby="product-{{ product.id }}-title">
+            <div class="card-media">
+                <!-- render actual image when available, otherwise show placeholder -->
+                {% if product.image %}
+                    <a href="{% url 'product_detail' product.id %}" class="product-image-link" aria-label="Open {{ product.name }} details">
+                        <img src="{% static product.image %}" alt="{{ product.name }}" class="product-img">
+                    </a>
+                {% else %}
+                    <div class="image-placeholder" data-product-id="{{ product.id }}" aria-hidden="true"></div>
+                {% endif %}
+                <button class="card-icon" aria-label="Add {{ product.name }} to wishlist">♡</button>
+            </div>
+
+            <div class="card-body">
+                <h3 id="product-{{ product.id }}-title" class="card-title">{{ product.name }}</h3>
+                <p class="card-sub">{{ product.category.name }} · In stock: {{ product.stock }}</p>
+                <!-- price intentionally hidden on the listing per request -->
+                <div class="card-actions">
+                        <!-- primary full-width action (green) -->
+                        <a href="https://wa.me/254111670942?text={{ 'I want to order '|urlencode }}{{ product.name|urlencode }}" target="_blank" rel="noopener noreferrer" class="btn order-btn" role="button" aria-label="Order {{ product.name }} via WhatsApp">
+                            <!-- clearer WhatsApp glyph (filled) -->
+                            <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M20.52 3.48A11.8 11.8 0 0 0 12 .5C6.48.5 2.02 4.92 2.02 10.49c0 1.86.49 3.68 1.41 5.29L2 22l6.39-1.68A11.88 11.88 0 0 0 12 21.5c5.52 0 10.02-4.48 10.52-10 .12-1.64-.18-3.24-.99-4.99zM12 18.5c-1.67 0-3.29-.46-4.66-1.33l-.33-.21-2.37.62.62-2.31-.22-.36A8.3 8.3 0 0 1 3.5 10.49 8.5 8.5 0 1 1 12 18.5zM16.6 14.7c-.2.6-1.16 1.16-1.6 1.25-.41.09-.82.12-1.96-.28-1.66-.6-3.04-2.48-3.3-2.73-.26-.25-1.83-1.95-1.83-3.04 0-1.08.73-1.52 1-1.71.27-.19.61-.2.84-.06.25.16.58.54.75.74.18.23.2.4.08.66-.11.26-.22.42-.37.63-.15.21-.32.45-.09.84.22.39.95 1.6 2.04 2.62 1.35 1.31 2.47 1.72 3.01 1.96.62.27 1.32.22 1.8.13.55-.12 1.09-.45 1.43-1 .12-.21.24-.26.41-.24.14.02.43.05.65.08.21.03.39.07.45.12.12.09.14.32.06.62z"/></svg>
+                            <span>Order via WhatsApp</span>
+                        </a>
+                        <!-- secondary action -->
+                        <a href="tel:+254111670942" class="btn call-btn" role="button" aria-label="Call to inquire about {{ product.name }}">
+                            <!-- phone icon -->
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.57.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.07 21 3 13.93 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.24.2 2.45.57 3.57.12.36.03.76-.25 1.03l-2.2 2.19z" fill="currentColor"/></svg>
+                            <span>Call for Inquiries</span>
+                        </a>
+                </div>
+            </div>
+        </article>
+        {% endfor %}
+    {% else %}
+        <p>No products available for this selection.</p>
+    {% endif %}
+</div>
+
+{% endblock %}

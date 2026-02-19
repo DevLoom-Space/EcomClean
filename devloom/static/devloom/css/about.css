@@ -1,0 +1,234 @@
+/* === ANIMATION & GLOW EFFECTS === */
+.slide-in {
+    opacity: 0;
+    transform: translateY(-40px);
+    transition: opacity 0.7s cubic-bezier(.4,2,.6,1), transform 0.7s cubic-bezier(.4,2,.6,1);
+}
+.slide-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(.4,2,.6,1), transform 0.8s cubic-bezier(.4,2,.6,1);
+}
+.fade-in.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* .about-story h2, .about-story p, .highlight, and glow animation removed for clean look */
+
+/* ===============================
+   HERO
+================================ */
+.about-hero {
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.about-logo {
+    width: 70px;
+    margin-bottom: 0.8rem;
+    filter: drop-shadow(0 0 15px #22d3ee); /* techy glow */
+    transition: transform 0.3s ease;
+}
+
+.about-logo:hover {
+    transform: scale(1.1);
+}
+
+.about-hero h1 {
+    font-size: 2.3rem;
+    font-weight: 900;
+    color: #1e1b4b;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 0.4rem;
+}
+
+.about-hero p {
+    font-size: 1.05rem;
+    color: #334155;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+.about-story,
+.about-values,
+.about-team {
+    margin-bottom: 1.5rem;
+}
+
+.about-story h2,
+.about-values h2,
+.about-team h2 {
+    font-size: 1.5rem;
+    color: #3b82f6; /* accent blue */
+    margin-bottom: 0.5rem;
+}
+
+.about-story p {
+    font-size: 1rem;
+    color: #475569;
+}
+
+/* ===============================
+   VALUES PILLS
+================================ */
+.about-values ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+}
+
+.about-values li {
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(15px);
+    border-radius: 999px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e1b4b;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+}
+
+.about-values li:hover {
+    background: rgba(255, 255, 255, 0.55);
+    transform: translateY(-2px);
+}
+
+/* ===============================
+   TEAM AVATARS
+================================ */
+.team-grid {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.team-member {
+    width: 190px;
+    padding: 1.3rem 1rem;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 22px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15), 0 0 15px rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    transition: all 0.3s ease;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15), 0 0 25px rgba(255,255,255,0.1);
+}
+
+.team-member img {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5rem;
+    border: 3px solid transparent;
+    background-image:
+        linear-gradient(white, white),
+        linear-gradient(135deg, #6366f1, #22d3ee);
+    background-origin: border-box;
+    background-clip: content-box, border-box;
+}
+
+.team-member h3 {
+    font-size: 1.05rem;
+    color: #1e1b4b;
+    margin: 0.3rem 0 0.1rem;
+}
+
+.team-member p {
+    font-size: 0.9rem;
+    color: #475569;
+    margin: 0;
+}
+
+/* ===============================
+   MOBILE
+================================ */
+@media (max-width: 768px) {
+    .about-container {
+        max-height: none;
+        overflow: visible;
+        padding: 2rem 1.5rem;
+    }
+
+    .team-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+
+
+
+
+
+.about-story {
+    background-color: #fff; /* clean white background */
+    padding: 80px 20px;
+    max-width: 900px;
+    margin: auto;
+    text-align: center;
+    font-family: 'Inter', sans-serif;
+}
+
+.about-story h2 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #111;
+    opacity: 0;
+    transform: translateY(-30px);
+    transition: all 1s ease;
+}
+
+.about-story h2.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.about-story p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #333;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 1.2s ease;
+}
+
+.about-story p.appear {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Highlight keywords */
+.highlight {
+    background: linear-gradient(90deg, #00f5ff, #ff00f7);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 700;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 5px #00f5ff, 0 0 10px #ff00f7; }
+    50% { text-shadow: 0 0 10px #00f5ff, 0 0 20px #ff00f7; }
+    100% { text-shadow: 0 0 5px #00f5ff, 0 0 10px #ff00f7; }
+}

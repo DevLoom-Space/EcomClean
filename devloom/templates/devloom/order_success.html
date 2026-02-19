@@ -1,0 +1,65 @@
+{% extends 'devloom/base.html' %}
+{% load static %}
+
+{% block title %}Order Placed - DevLoom{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-center align-items-center" style="min-height: 80vh; background: linear-gradient(120deg, #e0f7fa 60%, #f7e9fc 100%);">
+    <div class="card shadow-lg border-0 p-4 w-100 animate__animated animate__fadeInUp" style="max-width: 540px; border-radius: 24px; background: #fff; position: relative;">
+        <div class="text-center mb-4">
+            <!-- Animated SVG checkmark -->
+            <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="35" cy="35" r="32" fill="#e0f7fa"/>
+                <circle cx="35" cy="35" r="28" fill="#22c55e"/>
+                <path d="M25 36l7 7 13-13" stroke="#fff" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+                    <animate attributeName="stroke-dasharray" from="0,40" to="40,0" dur="0.7s" fill="freeze" />
+                </path>
+            </svg>
+            <h2 class="fw-bold mt-3 mb-2" style="color: #0d1b2a;">Order placed! 🎉</h2>
+            <p class="text-muted mb-0" style="font-size: 1.08rem;">Thanks — we've received your order.<br><span style="color:#00e5ff;font-weight:600;">You’re awesome!</span></p>
+        </div>
+        {% if items %}
+            <div class="mb-4">
+                <h4 class="fw-semibold mb-2" style="color: #222;">Order summary</h4>
+                <ul class="list-group mb-2">
+                {% for it in items %}
+                    <li class="list-group-item d-flex justify-content-between align-items-center" style="border: none; background: #f8fafc; border-radius: 7px; margin-bottom: 6px;">
+                        <span>{{ it.qty }} x {{ it.name }}</span>
+                        <span class="fw-bold" style="color: #0ea5e9;">Ksh {{ it.price }}</span>
+                    </li>
+                {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <div class="text-center mt-3">
+            <a href="{% url 'product_list' %}" class="btn btn-lg px-4 py-2" style="border-radius: 999px; background: linear-gradient(90deg,#00e5ff,#0077ff); color: #fff; font-weight: 700; font-size: 1.15rem; box-shadow: 0 2px 12px #00e5ff44;">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" style="vertical-align:middle; margin-right:8px;"><path d="M3 3h2l.4 2M7 13h10l4-8H5.4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="7" cy="21" r="1" fill="#fff"/><circle cx="17" cy="21" r="1" fill="#fff"/></svg>
+                Continue shopping
+            </a>
+        </div>
+        <!-- Confetti effect (JS) -->
+        <script>
+        function showConfetti() {
+          const confettiColors = ["#00e5ff", "#0077ff", "#eab308", "#a020f0", "#f7e9fc", "#22c55e"];
+          for(let i=0;i<40;i++){
+            let conf = document.createElement('div');
+            conf.style.position='fixed';
+            conf.style.left=Math.random()*100+'vw';
+            conf.style.top='-20px';
+            conf.style.width='10px';
+            conf.style.height='10px';
+            conf.style.borderRadius='50%';
+            conf.style.background=confettiColors[Math.floor(Math.random()*confettiColors.length)];
+            conf.style.zIndex=9999;
+            conf.style.opacity=0.8;
+            conf.style.transition='top 1.8s cubic-bezier(.4,2,.6,1)';
+            document.body.appendChild(conf);
+            setTimeout(()=>{conf.style.top='90vh';},100);
+            setTimeout(()=>{conf.remove();},2000);
+          }
+        }
+        window.addEventListener('DOMContentLoaded', showConfetti);
+        </script>
+    </div>
+</div>
+{% endblock %}
